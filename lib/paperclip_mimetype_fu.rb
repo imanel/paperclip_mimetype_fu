@@ -12,7 +12,7 @@ module PaperclipMimetypeFu
       end
   
       def check_content_type
-        extname = self.original_filename.split(".").last.to_s
+        extname = self.original_filename.split(".").last.to_s rescue ""
         content_type = EXTENSIONS[extname] || "unknown/unknown"
         instance_write(:content_type, content_type)
         true
